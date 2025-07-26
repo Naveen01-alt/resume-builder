@@ -1,0 +1,103 @@
+.hero-section {
+  padding-top: 64px; /* To avoid overlap with fixed navbar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  background: linear-gradient(to bottom right, #bfdbfe, #e9d5ff);
+}
+
+/* Title Text */
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+/* Subtitle */
+.hero-description {
+  font-size: 1.125rem;
+  color: #4b5563;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+  padding: 0 8px;
+}
+
+/* Button Container */
+.hero-buttons {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Common Button Style */
+.hero-btn {
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Primary Button */
+.hero-btn.primary {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+}
+
+.hero-btn.primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.hero-btn.secondary {
+  background-color: #ffffff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.hero-btn.secondary:hover {
+  background-color: #f0f9ff;
+  transform: translateY(-2px);
+}
+
+/* ========== Mobile Responsive ========== */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+  }
+}

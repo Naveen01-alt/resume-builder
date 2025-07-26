@@ -1,0 +1,173 @@
+.experience-section {
+padding: 40px 20px;
+max-width: 900px;
+margin: auto;
+background: #f8fafc;
+border-radius: 16px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.section-title {
+font-size: 2rem;
+font-weight: 700;
+color: #1f2937;
+text-align: center;
+margin-bottom: 32px;
+}
+
+.experience-card {
+background-color: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 12px;
+padding: 24px;
+margin-bottom: 24px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.form-grid {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+margin-bottom: 16px;
+}
+
+.form-grid input {
+flex: 1;
+min-width: 200px;
+padding: 12px;
+border-radius: 8px;
+border: 1px solid #cbd5e1;
+font-size: 1rem;
+background-color: #fefefe;
+transition: border-color 0.3s;
+}
+
+.form-grid input:focus,
+textarea:focus {
+outline: none;
+border-color: #3b82f6;
+box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+textarea {
+width: 100%;
+padding: 12px;
+border-radius: 8px;
+border: 1px solid #cbd5e1;
+font-size: 1rem;
+resize: vertical;
+}
+
+.experience-buttons {
+text-align: center;
+margin-top: 16px;
+}
+
+.add-btn {
+background-color: #facc15;
+color: #1e293b;
+padding: 10px 20px;
+border: none;
+border-radius: 8px;
+font-weight: 600;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.add-btn:hover {
+background-color: #eab308;
+}
+
+.nav-buttons {
+margin-top: 24px;
+display: flex;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.back-btn,
+.next-btn,
+.preview-btn,
+.close-btn {
+padding: 10px 20px;
+border: none;
+font-weight: 600;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.back-btn {
+background-color: #e2e8f0;
+color: #1e293b;
+}
+
+.next-btn {
+background-color: #3b82f6;
+color: #ffffff;
+}
+
+.preview-btn {
+background-color: #fff;
+color: #3b82f6;
+border: 2px solid #3b82f6;
+}
+
+.preview-btn:hover {
+background-color: #eff6ff;
+}
+
+.modal-overlay {
+position: fixed;
+inset: 0;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: flex-start;
+justify-content: center;
+padding: 60px 20px;
+z-index: 1000;
+overflow-y: auto;
+}
+
+.modal {
+background: white;
+border-radius: 12px;
+padding: 24px;
+max-width: 600px;
+width: 100%;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.preview-card {
+background-color: #f1f5f9;
+padding: 16px;
+margin-top: 12px;
+border-radius: 8px;
+text-align: left;
+}
+
+.preview-card p {
+margin: 4px 0;
+}
+
+.close-btn {
+background-color: #ef4444;
+color: white;
+margin-top: 16px;
+}
+
+.close-btn:hover {
+background-color: #dc2626;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+.form-grid {
+flex-direction: column;
+}
+
+.experience-section {
+padding: 24px 12px;
+}
+}

@@ -1,0 +1,248 @@
+.preview-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+  background-color: #f0f0f0;
+}
+
+.theme-selector {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.resume-container {
+  width: 794px; /* A4 width at 96dpi */
+  height: 1123px; /* A4 height at 96dpi */
+  overflow: hidden;
+  padding: 20px;
+  background-color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.resume-page {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  background: white;
+}
+
+.resume-inner {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.resume-left {
+  width: 35%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #333;
+}
+
+.resume-right {
+  width: 65%;
+  background-color: #ffffff;
+  padding: 30px;
+  box-sizing: border-box;
+  color: #111;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.resume-left section,
+.resume-right section {
+  margin-bottom: 20px;
+}
+
+.resume-left h3,
+.resume-right h3 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.resume-left ul,
+.resume-right ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+.resume-left p,
+.resume-right p,
+.resume-right li,
+.resume-left li {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 2px 0;
+}
+
+.resume-right header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.resume-right header h1 {
+  font-size: 28px;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.resume-right header h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666;
+  margin: 5px 0 15px;
+}
+
+.resume-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.resume-actions button {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.resume-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Themes */
+.theme-light .resume-left {
+  background-color: #f4f4f4;
+}
+.theme-light .resume-right {
+  background-color: #ffffff;
+}
+
+.theme-dark .resume-left {
+  background-color: #333;
+  color: #eee;
+}
+.theme-dark .resume-right {
+  background-color: #222;
+  color: #f9f9f9;
+}
+
+.theme-blue .resume-left {
+  background-color: #e7f0ff;
+}
+.theme-blue .resume-right {
+  background-color: #ffffff;
+}
+
+.theme-elegant .resume-left {
+  background-color: #fef9f4;
+}
+.theme-elegant .resume-right {
+  background-color: #f7f2ee;
+}
+
+/* ✅ Mobile responsive: same layout, just smaller */
+@media (max-width: 768px) {
+  .resume-left {
+    padding: 10px;
+    width: 40%;
+  }
+
+  .resume-right {
+    padding: 15px;
+    width: 60%;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .resume-right header h1 {
+    font-size: 20px;
+  }
+
+  .resume-right header h2 {
+    font-size: 14px;
+  }
+
+  .resume-left h3,
+  .resume-right h3 {
+    font-size: 14px;
+  }
+
+  .resume-left p,
+  .resume-right p,
+  .resume-left li,
+  .resume-right li {
+    font-size: 12px;
+  }
+
+  .resume-actions button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-left {
+    width: 45%;
+  }
+
+  .resume-right {
+    width: 55%;
+  }
+
+  .resume-left p,
+  .resume-right p,
+  .resume-left li,
+  .resume-right li {
+    font-size: 11px;
+  }
+
+  .resume-right header h1 {
+    font-size: 18px;
+  }
+
+  .resume-right header h2 {
+    font-size: 13px;
+  }
+
+  .resume-actions button {
+    width: 100%;
+    max-width: 200px;
+    font-size: 12px;
+  }
+}
+.section {
+  page-break-inside: avoid;
+}
+
