@@ -13,6 +13,7 @@ export default function StepProgressBar() {
     { path: '/workexperience', label: 'WorkExperience' },
     { path: '/aboutme', label: 'AboutMe' },
     { path: '/projects', label: 'Projects' },
+    { path: '/declaration', label: 'Declaration' },
     { path: '/resumepreview', label: 'Preview' },
   ];
 

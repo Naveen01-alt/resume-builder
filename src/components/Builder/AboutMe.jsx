@@ -8,7 +8,7 @@ export default function About() {
 
   const [summary, setSummary] = useState("");
   const [strengths, setStrengths] = useState([""]);
-  const [weaknesses, setWeaknesses] = useState([""]);
+  const [hobbies, setHobbies] = useState([""]);
   const [languages, setLanguages] = useState([""]);
   const [showPreview, setShowPreview] = useState(false);
 
@@ -18,7 +18,7 @@ export default function About() {
     if (saved) {
       setSummary(saved.summary || "");
       setStrengths(saved.strengths || [""]);
-      setWeaknesses(saved.weaknesses || [""]);
+      setHobbies(saved.hobbies || [""]);
       setLanguages(saved.languages || [""]);
     }
   }, []);
@@ -28,11 +28,11 @@ export default function About() {
     const aboutMe = {
       summary,
       strengths: strengths.filter(Boolean),
-      weaknesses: weaknesses.filter(Boolean),
+      hobbies: hobbies.filter(Boolean),
       languages: languages.filter(Boolean),
     };
     localStorage.setItem("aboutMe", JSON.stringify(aboutMe));
-  }, [summary, strengths, weaknesses, languages]);
+  }, [summary, strengths, hobbies, languages]);
 
   const handleChange = (setter, list, idx, value) => {
     const updated = [...list];
@@ -77,16 +77,16 @@ export default function About() {
       </div>
 
       <div className="form-group">
-        <label>Weaknesses</label>
-        {weaknesses.map((item, idx) => (
+        <label>Hobbies</label>
+        {hobbies.map((item, idx) => (
           <input
             key={idx}
             value={item}
-            placeholder={`Weakness #${idx + 1}`}
-            onChange={(e) => handleChange(setWeaknesses, weaknesses, idx, e.target.value)}
+            placeholder={`Hobbies #${idx + 1}`}
+            onChange={(e) => handleChange(setHobbies, hobbies, idx, e.target.value)}
           />
         ))}
-        <button onClick={() => addField(setWeaknesses, weaknesses)}>+ Add Weakness</button>
+        <button onClick={() => addField(setHobbies, hobbies)}>+ Add Hobbies</button>
       </div>
 
       <div className="form-group">
@@ -121,7 +121,7 @@ export default function About() {
               <h3>Preview</h3>
               <p><strong>Summary:</strong> {summary}</p>
               <p><strong>Strengths:</strong> {strengths.filter(Boolean).join(", ")}</p>
-              <p><strong>Weaknesses:</strong> {weaknesses.filter(Boolean).join(", ")}</p>
+              <p><strong>Hobbies:</strong> {hobbies.filter(Boolean).join(", ")}</p>
               <p><strong>Languages:</strong> {languages.filter(Boolean).join(", ")}</p>
               <button onClick={() => setShowPreview(false)}>✖ Close</button>
             </motion.div>

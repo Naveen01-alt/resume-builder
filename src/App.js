@@ -13,6 +13,7 @@ import AboutMe from './components/Builder/AboutMe';
 import Projects from './components/Builder/Projects';
 import ResumePreview from './components/Builder/ResumePreview';
 import StepProgressBar from './components/Builder/StepProgressBar';
+import Declaration from './components/Builder/Declaration';
 
 function HomePage() {
   return (
@@ -21,6 +22,7 @@ function HomePage() {
       <Herosection />
       <FeaturesSection />
       <HowItWorksSection />
+      
       <Footer />
     </main>
   );
@@ -37,6 +39,7 @@ function LayoutWithProgress() {
     '/workexperience',
     '/projects',
     '/aboutme',
+    '/declaration',
     '/resumepreview'
   ];
 
@@ -60,6 +63,12 @@ function LayoutWithProgress() {
         <Route path="/aboutme" element={<AboutMe />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/resumepreview" element={<ResumePreview />} />
+        <Route path="/declaration" element={<Declaration/>}/>
+        <Route path="/featuresection" element={<FeaturesSection/>}/>
+        <Route path="/templateselection" element={<TemplateSelection/>}/>
+        <Route path="/howitworkssection" element={<HowItWorksSection/>}/>
+        
+
       </Routes>
     </>
   );

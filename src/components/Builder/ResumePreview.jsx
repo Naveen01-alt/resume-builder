@@ -36,20 +36,27 @@ export default function ResumePreview() {
   const skills = getData("skillsList");
   const work = getData("workList");
   const projects = getData("userProjects");
+  const declaration = localStorage.getItem("declaration") || "";
+
+
+  const aboutMeData = (() => {
+    try {
+      return JSON.parse(localStorage.getItem("aboutMe")) || {};
+    } catch {
+      return {};
+    }
+  })();
 
   const about = {
-    summary: localStorage.getItem("aboutMeSummary") || "",
-    strengths: getData("aboutMeStrengths"),
-    weaknesses: getData("aboutMeWeaknesses"),
-    languages: getData("aboutMeLanguages"),
+    summary: aboutMeData.summary || "",
+    strengths: Array.isArray(aboutMeData.strengths) ? aboutMeData.strengths : [],
+    hobbies: Array.isArray(aboutMeData.hobbies) ? aboutMeData.hobbies : [],
+    languages: Array.isArray(aboutMeData.languages) ? aboutMeData.languages : [],
   };
 
   const downloadPDF = async () => {
     const input = resumeRef.current;
     if (!input) return;
-
-    const A4_WIDTH = 210;
-    const A4_HEIGHT = 297;
 
     const canvas = await html2canvas(input, {
       scale: 2,
@@ -60,20 +67,20 @@ export default function ResumePreview() {
     });
 
     const imgData = canvas.toDataURL("image/jpeg", 1.0);
-
     const pdf = new jsPDF("p", "mm", "a4");
-    const pdfWidth = A4_WIDTH;
+
+    const pdfWidth = 210;
     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
-    if (pdfHeight <= A4_HEIGHT) {
+    if (pdfHeight <= 297) {
       pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
     } else {
       let heightLeft = pdfHeight;
       let position = 0;
       while (heightLeft > 0) {
         pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, pdfHeight);
-        heightLeft -= A4_HEIGHT;
-        position -= A4_HEIGHT;
+        heightLeft -= 297;
+        position -= 297;
         if (heightLeft > 0) pdf.addPage();
       }
     }
@@ -102,8 +109,8 @@ export default function ResumePreview() {
         ref={resumeRef}
         style={{
           overflow: "hidden",
-          width: "794px", // A4 width in pixels @ 96dpi
-          minHeight: "1123px", // A4 height in pixels @ 96dpi
+          width: "794px",
+          minHeight: "1123px",
           padding: "20px",
           margin: "0 auto",
           backgroundColor: "#fff",
@@ -111,9 +118,8 @@ export default function ResumePreview() {
       >
         <div className="resume-inner">
           <aside className="resume-left">
-            {photo && (
-              <img src={photo} alt="Profile" className="profile-photo" />
-            )}
+            {photo && <img src={photo} alt="Profile" className="profile-photo" />}
+
             {personal && (
               <section>
                 <h3>CONTACT</h3>
@@ -124,32 +130,37 @@ export default function ResumePreview() {
                 {personal.website && <p>🌐 {personal.website}</p>}
               </section>
             )}
+
             {skills.length > 0 && (
               <section>
                 <h3>SKILLS</h3>
                 <ul>{skills.map((s, i) => <li key={i}>{s}</li>)}</ul>
               </section>
             )}
+
             {(about.summary || about.strengths.length || about.weaknesses.length || about.languages.length) && (
               <section>
-                <h3>ABOUT</h3>
+                <h3>ABOUT ME</h3>
                 {about.summary && <p>{about.summary}</p>}
+
                 {about.strengths.length > 0 && (
                   <>
-                    <p><strong>Strengths:</strong></p>
+                    <h4>Strengths</h4>
                     <ul>{about.strengths.map((s, i) => <li key={i}>{s}</li>)}</ul>
                   </>
                 )}
-                {about.weaknesses.length > 0 && (
+
+                {about.hobbies.length > 0 && (
                   <>
-                    <p><strong>Weaknesses:</strong></p>
-                    <ul>{about.weaknesses.map((w, i) => <li key={i}>{w}</li>)}</ul>
+                    <h4>Hobbies</h4>
+                    <ul>{about.hobbies.map((w, i) => <li key={i}>{w}</li>)}</ul>
                   </>
                 )}
+
                 {about.languages.length > 0 && (
                   <>
-                    <p><strong>Languages:</strong></p>
-                    <ul>{about.languages.map((l, i) => <li key={i}>{l}</li>)}</ul>
+                    <h4>Languages</h4>
+                    <ul>{about.languages.map((lang, i) => <li key={i}>{lang}</li>)}</ul>
                   </>
                 )}
               </section>
@@ -163,6 +174,7 @@ export default function ResumePreview() {
                 <h2>{personal.profession}</h2>
               </header>
             )}
+
             {work.length > 0 && (
               <section>
                 <h3>EXPERIENCE</h3>
@@ -179,6 +191,7 @@ export default function ResumePreview() {
                 ))}
               </section>
             )}
+
             {education.length > 0 && (
               <section>
                 <h3>EDUCATION</h3>
@@ -190,6 +203,8 @@ export default function ResumePreview() {
                 ))}
               </section>
             )}
+
+
             {projects.length > 0 && (
               <section>
                 <h3>PROJECTS</h3>
@@ -208,13 +223,19 @@ export default function ResumePreview() {
                 ))}
               </section>
             )}
+            {declaration && (
+    <section>
+      <h3>DECLARATION</h3>
+      <p>{declaration}</p>
+    </section>
+            )}
           </main>
         </div>
       </div>
 
       <div className="resume-actions">
         <button onClick={downloadPDF}>📥 Download</button>
-        <button onClick={() => navigate("/projects")}>Edit ➡</button>
+        <button onClick={() => navigate("/about")}>Edit ➡</button>
       </div>
     </div>
   );

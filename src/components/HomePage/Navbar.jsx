@@ -1,37 +1,43 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNav = (path) => {
+    setMenuOpen(false); // close mobile menu
+    navigate(path);
+  };
 
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">ResumePro</div>
+        <div className="navbar-logo" onClick={() => handleNav('/')}>
+          ResumePro
+        </div>
 
         <nav className="navbar-links">
-          <a href="#features" className="navbar-link">Features</a>
-          <a href="#templates" className="navbar-link">Templates</a>
-          <a href="#how-it-works" className="navbar-link">How it Works</a>
-          <a href="#contact" className="navbar-link">Contact</a>
+          <button className="navbar-link" onClick={() => handleNav('/featuresection')}>Features</button>
+          <button className="navbar-link" onClick={() => handleNav('/templateselection')}>Templates</button>
+          <button className="navbar-link" onClick={() => handleNav('/howitworkssection')}>How it Works</button>
+          
         </nav>
 
-        
-
         <div className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
+          {!menuOpen ? '☰' : '✖'}
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="mobile-menu">
-          <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
-          <a href="#templates" onClick={() => setMenuOpen(false)}>Templates</a>
-          <a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it Works</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-          <a href="#" className="navbar-btn" onClick={() => setMenuOpen(false)}>Start</a>
-        </div>
-      )}
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? 'show' : ''}`}>
+        <button onClick={() => handleNav('/featuresection')}>Features</button>
+        <button onClick={() => handleNav('/templateselection')}>Templates</button>
+        <button onClick={() => handleNav('/howitworkssection')}>How it Works</button>
+        
+        
+      </div>
     </header>
   );
 }

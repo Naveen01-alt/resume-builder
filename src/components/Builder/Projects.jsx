@@ -76,7 +76,7 @@ export default function Projects() {
         <button className="back-btn" onClick={() => navigate("/aboutme")}>
           ⬅ Back
         </button>
-        <button className="next-btn" onClick={() => navigate("/resumepreview")}>
+        <button className="next-btn" onClick={() => navigate("/declaration")}>
           Next ➡
         </button>
         <button className="preview-btn" onClick={() => setShowPreview(true)}>
