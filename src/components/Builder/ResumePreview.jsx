@@ -235,7 +235,7 @@ export default function ResumePreview() {
 
       <div className="resume-actions">
         <button onClick={downloadPDF}>📥 Download</button>
-        <button onClick={() => navigate("/projects")}>Edit ➡</button>
+        <button onClick={() => navigate("/personalinfo")}>Edit ➡</button>
       </div>
     </div>
   );
