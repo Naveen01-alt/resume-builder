@@ -20,8 +20,6 @@ function HomePage() {
     <main className="font-sans">
       <Navbar />
       <Herosection />
-      <FeaturesSection />
-      <HowItWorksSection />
       
       <Footer />
     </main>

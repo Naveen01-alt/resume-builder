@@ -19,9 +19,12 @@ export default function Navbar() {
         </div>
 
         <nav className="navbar-links">
+          <button className="navbar-link" onClick={() => handleNav('/')}>Home</button>
           <button className="navbar-link" onClick={() => handleNav('/featuresection')}>Features</button>
           <button className="navbar-link" onClick={() => handleNav('/templateselection')}>Templates</button>
           <button className="navbar-link" onClick={() => handleNav('/howitworkssection')}>How it Works</button>
+          
+          
           
         </nav>
 

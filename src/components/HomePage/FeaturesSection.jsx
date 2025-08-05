@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Navbar from './Navbar';
 import './FeatureSection.css';
 
 const features = [
@@ -10,6 +11,9 @@ const features = [
 
 export default function FeaturesSection() {
   return (
+  <>
+  <Navbar/>
+  
     <section className="feature-section">
       <div className="feature-wrapper">
         <motion.h2 
@@ -36,7 +40,9 @@ export default function FeaturesSection() {
             </motion.div>
           ))}
         </div>
+      
       </div>
     </section>
+    </>
   );
 }

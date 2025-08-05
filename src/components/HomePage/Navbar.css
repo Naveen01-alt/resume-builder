@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   z-index: 999;
   transition: all 0.3s ease-in-out;
@@ -23,7 +23,7 @@
 /* ====== Logo ====== */
 .navbar-logo {
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 1000;
   color: #2563eb;
   letter-spacing: -0.5px;
   cursor: pointer;

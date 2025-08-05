@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import './HowItWorks.css';
+import Navbar from './Navbar';
 
 const steps = [
   { step: 1, title: 'Choose a Template', description: 'Pick from modern, professional templates designed to impress.' },
@@ -9,6 +10,8 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
+    <>
+    <Navbar/>
     <section className="how-section">
       <div className="how-wrapper">
         <motion.h2 
@@ -38,5 +41,6 @@ export default function HowItWorksSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

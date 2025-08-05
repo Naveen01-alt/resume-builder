@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PersonalInfo from '../Builder/PersonalInfo';
+import Navbar from '../HomePage/Navbar';
 
 const templates = [
   { id: 1, name: 'Modern', image: '/template1.webp' },
@@ -27,7 +28,11 @@ export default function TemplateSelection() {
   };
 
   return (
+    <>
+    <Navbar/>
+    
     <section className="template-section">
+      
       <div className="template-wrapper">
         <motion.h2 
           className="template-title"
@@ -73,5 +78,6 @@ export default function TemplateSelection() {
         )}
       </div>
     </section>
+    </>
   );
 }
